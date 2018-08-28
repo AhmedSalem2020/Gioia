@@ -1,0 +1,373 @@
+﻿
+@{
+    ViewData["Title"] = "youtube";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 border display-container text-center">
+            <img id="happy" class="img-responsive img-circle center-block " src="~/images/inside-out-characters/4.png" />
+            <br />
+            <label> Happy </label>
+            <br />
+            <div class="text-center" id="btnHappy">
+            </div>
+        </div>
+        
+
+        <div class="col-md-3 border display-container text-center ">
+            <img id="sad" class="img-responsive img-circle center-block" src="~/images/inside-out-characters/1.png" />
+            <br />
+            <label> Sad </label>
+            <br />
+            <div class="text-center" id="btnSad">
+
+            </div>
+        </div>
+
+        <div class="col-md-3 border display-container text-center">
+            <img id="anger" class="img-responsive img-circle center-block" src="~/images/inside-out-characters/2.png" />
+            <br />
+            <label> Angery </label>
+            <br />
+            <div class="text-center" id="btnAnger">
+
+            </div>
+        </div>
+
+        <div class="col-md-3 border display-container text-center">
+            <img id="nature" class="img-responsive img-circle center-block" src="~/images/inside-out-characters/3.png" />
+            <br />
+
+            <label> Netural </label>
+            <br />
+            <div class="text-center" id="btnNetural">
+
+            </div>
+        </div>
+    </div>
+
+   
+
+</div>
+
+
+<br />
+<iframe id="video" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+
+@section scripts{
+<script src="~/Scripts/jquery-3.2.1.js"></script>
+    @*<script src="~/js/jquery-3.1.1.js"></script>*@
+
+    <script async>
+       
+        // Sad Function
+        $(document).ready(function () {
+          
+            $("#sad").one("click", function () {
+                //alert();
+
+                //debugger;
+
+                // music btn
+                var btn = document.createElement("BUTTON");
+                var t = document.createTextNode("Music");
+                btn.appendChild(t);
+                document.getElementById("btnSad").appendChild(btn);
+
+                var att = document.createAttribute("id");       // Create a "class" attribute
+                att.value = "btnMSad";
+                btn.setAttributeNode(att);
+
+                // video btn
+                var btn = document.createElement("BUTTON");
+                var t = document.createTextNode("Videos");
+                btn.appendChild(t);
+                document.getElementById("btnSad").appendChild(btn);
+
+                var att = document.createAttribute("id");       // Create a "class" attribute
+                att.value = "btnVSad";
+                btn.setAttributeNode(att);
+                // $("#btnMSad").click(function () {alert('hi')})
+
+                $("#btnMSad").click(function () {
+                    //debugger;
+                    $.ajax({
+                        type: 'GET',
+                        url: "http://192.168.43.205:3050/api/Features/2",
+                        //data:{id:1},
+                        dataType: "json",
+                        success: function show(dburl) {
+                            //debugger;
+                            // console.log(dburl);
+                            $("#video").attr('src', dburl);
+                            //        var mood;
+                            //        var dt = new Date();
+                            //        if (Session["Member"] != null)
+                            //        {
+                            //            $.ajax({
+                            //                type: 'POST',
+                            //                url: "http://localhost:29724/api/UserMood/",
+                            //                data: mood.uMood = 
+                            //                        {
+                            //                            moodId :"2",
+                            //                            userId :TempData["userId"],
+                            //                            Date: time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+
+                            //        }
+                            //    },
+                            //    dataType: "json",
+                            //    success: function() {
+                            //        alert("hiii");
+                            //    },
+
+                            //});//end success ajax
+                            $("#video").attr('src', dburl);
+                            //$("#video").src = '//www.youtube.com/embed/' + dburl.sadMood;
+                        },
+
+                    });//end ajax
+                });//end click
+
+                $("#btnVSad").click(function () {
+                    //debugger;
+                    $.ajax({
+                        type: 'GET',
+                        url: "http://192.168.43.205:3050/api/videoFeatures/2",
+                        //data:{id:1},
+                        dataType: "json",
+                        success: function show(dburl) {
+                            //debugger;
+                            // console.log(dburl);
+                            $("#video").attr('src', dburl);
+                            //        var mood;
+                            //        var dt = new Date();
+                            //        if (Session["Member"] != null)
+                            //        {
+                            //            $.ajax({
+                            //                type: 'POST',
+                            //                url: "http://localhost:29724/api/UserMood/",
+                            //                data: mood.uMood = 
+                            //                        {
+                            //                            moodId :"2",
+                            //                            userId :TempData["userId"],
+                            //                            Date: time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+
+                            //        }
+                            //    },
+                            //    dataType: "json",
+                            //    success: function() {
+                            //        alert("hiii");
+                            //    },
+
+                            //});//end success ajax
+                            //$("#video").attr('src', dburl);
+                            //$("#video").src = '//www.youtube.com/embed/' + dburl.sadMood;
+                        },
+
+                    });//end ajax
+                });//end click
+            });
+    
+        });//end document
+
+        // Angery Function
+        $(document).ready(function () {
+
+            $("#anger").one("click", function () {
+                //alert();
+                //debugger;
+                // music btn
+                var btn = document.createElement("BUTTON");
+                var t = document.createTextNode("Music");
+                btn.appendChild(t);
+                document.getElementById("btnAnger").appendChild(btn);
+
+                var att = document.createAttribute("id");       // Create a "class" attribute
+                att.value = "btnMAnger";
+                btn.setAttributeNode(att);
+
+                // video btn
+                var btn = document.createElement("BUTTON");
+                var t = document.createTextNode("Videos");
+                btn.appendChild(t);
+                document.getElementById("btnAnger").appendChild(btn);
+
+                var att = document.createAttribute("id");       // Create a "class" attribute
+                att.value = "btnVAnger";
+                btn.setAttributeNode(att);
+
+                $("#btnMAnger").click(function () {
+                    //debugger;
+                    $.ajax({
+                        type: 'GET',
+                        url: "http://192.168.43.205:3050/api/Features/4",
+                        //data: { id: 2 },
+                        dataType: "json",
+                        success: function show(dburl) {
+                            //debugger;
+
+                            $("#video").attr('src', dburl);
+                          
+                        },
+
+                    });//end ajax
+                });//end click
+
+                $("#btnVAnger").click(function () {
+                    //debugger;
+                    $.ajax({
+                        type: 'GET',
+                        url: "http://192.168.43.205:3050/api/videoFeatures/4",
+                        //data:{id:1},
+                        dataType: "json",
+                        success: function show(dburl) {
+                            //debugger;
+                            // console.log(dburl);
+                            $("#video").attr('src', dburl);
+                           
+                        },
+
+                    });//end ajax
+                });//end click
+
+                
+            });//end click
+        });//end document
+
+        // Happy Function
+        $(document).ready(function () {
+
+            $("#happy").one("click", function () {
+
+                //alert();
+                //debugger;
+                var btn = document.createElement("BUTTON");
+                var t = document.createTextNode("Music");
+                btn.appendChild(t);
+                document.getElementById("btnHappy").appendChild(btn);
+
+                var att = document.createAttribute("id");       // Create a "class" attribute
+                att.value = "btnMHappy";
+                btn.setAttributeNode(att);
+
+                // video btn
+                var btn = document.createElement("BUTTON");
+                var t = document.createTextNode("Videos");
+                btn.appendChild(t);
+                document.getElementById("btnHappy").appendChild(btn);
+
+                var att = document.createAttribute("id");       // Create a "class" attribute
+                att.value = "btnVHappy";
+                btn.setAttributeNode(att);
+
+                $("#btnMHappy").click(function () {
+                    //debugger;
+                    $.ajax({
+                        type: 'GET',
+                        url: "http://192.168.43.205:3050/api/Features/1",
+                        //data: { id: 3 },
+                        dataType: "json",
+                        success: function show(dburl) {
+                            //      debugger;
+                            console.log(dburl);
+                            $("#video").attr('src', dburl);
+                        },
+                    });//end ajax
+                });//end click
+
+                $("#btnVHappy").click(function () {
+                    //debugger;
+                    $.ajax({
+                        type: 'GET',
+                        url: "http://192.168.43.205:3050/api/videoFeatures/1",
+                        //data:{id:1},
+                        dataType: "json",
+                        success: function show(dburl) {
+                            //debugger;
+                            // console.log(dburl);
+                            $("#video").attr('src', dburl);
+
+                        },
+
+                    });//end ajax
+                });//end click
+
+               
+            });//end click
+        });//end document
+
+
+        // Netural Function
+        $(document).ready(function () {
+
+            $("#nature").one("click", function () {
+                //alert();
+                // debugger;
+
+                var btn = document.createElement("BUTTON");
+                var t = document.createTextNode("Music");
+                btn.appendChild(t);
+                document.getElementById("btnNetural").appendChild(btn);
+
+                var att = document.createAttribute("id");       // Create a "class" attribute
+                att.value = "btnMNetural";
+                btn.setAttributeNode(att);
+
+                // video btn
+                var btn = document.createElement("BUTTON");
+                var t = document.createTextNode("Videos");
+                btn.appendChild(t);
+                document.getElementById("btnNetural").appendChild(btn);
+
+                var att = document.createAttribute("id");       // Create a "class" attribute
+                att.value = "btnVNetural";
+                btn.setAttributeNode(att);
+
+                $("#btnMNetural").click(function () {
+                    //debugger;
+                    $.ajax({
+                        type: 'GET',
+                        url: "http://192.168.43.205:3050/api/Features/3",
+                        //data: { id: 3 },
+                        dataType: "json",
+                        success: function show(dburl) {
+                           // debugger;
+
+                            $("#video").attr('src', dburl);
+                        },
+
+                    });//end ajax
+                });//end click
+
+                $("#btnVNetural").click(function () {
+                    //debugger;
+                    $.ajax({
+                        type: 'GET',
+                        url: "http://192.168.43.205:3050/api/videoFeatures/3",
+                        //data:{id:1},
+                        dataType: "json",
+                        success: function show(dburl) {
+                            //debugger;
+                            // console.log(dburl);
+                            $("#video").attr('src', dburl);
+
+                        },
+
+                    });//end ajax
+                });//end click
+                
+            });//end click
+
+
+        });//end document
+
+
+    </script>
+}
+
+

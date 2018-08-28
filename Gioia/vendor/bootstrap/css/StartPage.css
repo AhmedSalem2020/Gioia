@@ -1,0 +1,25 @@
+﻿body {
+}
+
+.Scontainer {
+    width:100%;
+    text-align:center;
+   
+
+}
+#joyimg {
+    width: 400px;
+    height:250px;
+
+    
+}
+#icon {
+    width: 100px;
+    height: 100px;
+}
+
+.buttons {
+
+ text-align:center;
+}
+

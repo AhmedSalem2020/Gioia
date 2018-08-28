@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+
+<form method="post" action="~/Photo/UploadPhoto" enctype="multipart/form-data">
+    <input type="file" name="photouploader" />
+    <input type="submit" value="upload" />
+</form>
+
+
+

@@ -1,0 +1,221 @@
+﻿@model Gioia.Models.RegisterViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Appraise Register Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs Sign up Web Templates,
+        Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      showOtherMonths: true,
+      selectOtherMonths: true
+    });
+  } );
+    </script>
+
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <!--fonts-->
+    <link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+    <!--//fonts-->
+
+</head>
+<body>
+    <div class="login-section-agileits" style="margin-left:50px;">
+        <h3 class="form-head">register to Gioia today, Its'free!</h3>
+       
+        <form role="form" method="post" action="/Account/Register">
+
+            @if (ViewBag.error != null)
+            {
+                <div class="w3ls-icon">
+                    <h5 style="color:red">@ViewBag.error</h5>
+                </div>
+            }
+
+            <div class="w3ls-icon">
+                <span class="fa fa-angellist bgWhite" aria-hidden="true"></span>
+                @*<input type="text" class="lock" name="username" placeholder="username" />*@
+                @Html.TextBoxFor(a => a.username, new { @class = "lock", placeholder = "username" })
+                @Html.ValidationMessageFor(a => a.username)
+            </div>
+
+            <div class="w3ls-icon">
+                <span class="fa fa-user bgWhite" aria-hidden="true"></span>
+                @*<input type="text" class="lock" name="fname" placeholder="FirstName"/>*@
+                @Html.TextBoxFor(a => a.fname, new { @class = "lock bgWhite", placeholder = "First Name" })
+                @Html.ValidationMessageFor(a => a.fname)
+            </div>
+            <div class="w3ls-icon">
+                <span class="fa fa-user bgWhite" aria-hidden="true"></span>
+                @*<input type="text" class="lock" name="lname" placeholder="LastName" />*@
+                @Html.TextBoxFor(a => a.lname, new { @class = "lock", placeholder = "Last Name" })
+                @Html.ValidationMessageFor(a => a.lname)
+
+            </div>
+
+            <div class="w3ls-icon">
+                <span class="fa fa-envelope bgWhite" aria-hidden="true"></span>
+                @*<input type="email" class="user" name="Email" placeholder="Email" />*@
+                @Html.TextBoxFor(a => a.Email, new { @class = "lock", placeholder = "Email" })
+                @Html.ValidationMessageFor(a => a.Email)
+
+            </div>
+            <div class="w3ls-icon">
+                <span class="fa fa-birthday-cake bgWhite" aria-hidden="true"></span>
+                @*<input type="datetime" class="lock" name="bdate" placeholder="BirthDate" />*@
+                <input type="date"  id="datepicker" class="lock" name="bdate" placeholder="BirthDate">
+
+                @*@Html.EditorFor(a => a.bdate, new { @class = "lock form-control", id = "datepicker", placeholder = "BirthDate" })*@
+
+                @*@Html.TextBoxFor(a => a.bdate, new { @class = "lock date-picker", placeholder = "BirthDate" })*@
+                @Html.ValidationMessageFor(a => a.bdate)
+
+            </div>
+            <div class="w3ls-icon">
+                <span class="fa fa-lock bgWhite" aria-hidden="true"></span>
+                @*<input type="password" class="lock" id="password1" name="Password" placeholder="Password" />*@
+                @Html.PasswordFor(a => a.Password, new { @class = "lock", id = "password1", placeholder = "Password" })
+                @Html.ValidationMessageFor(a => a.Password)
+
+
+            </div>
+            <div class="w3ls-icon">
+                <span class="fa fa-expeditedssl bgWhite" aria-hidden="true"></span>
+                @*<input type="password" class="lock" id="password2" name="ConfirmPassword" placeholder="Confirm Password" />*@
+                @Html.PasswordFor(a => a.ConfirmPassword, new { @class = "lock", name = "ConfirmPassword", id = "password2", placeholder = "Confirm Password" })
+                @Html.ValidationMessageFor(a => a.ConfirmPassword)
+            </div>
+            <input type="submit" value="register now">
+        </form>
+    </div>
+    <script type="text/javascript">
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		}
+
+		function validatePassword() {
+			var pass2 = document.getElementById("password2").value;
+			var pass1 = document.getElementById("password1").value;
+			if (pass1 != pass2)
+				document.getElementById("password2").setCustomValidity("Passwords do not Match");
+			else
+				document.getElementById("password2").setCustomValidity('');
+			//empty string means no validation error
+		}
+    </script>
+
+</body>
+
+</html>
+
+@*@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.username, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.username, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.username)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.Email)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.fname, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.fname, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.fname)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.lname, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.lname, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.lname)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.bdate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.bdate, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.bdate)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.Password)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.ConfirmPassword)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+    *@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+
+

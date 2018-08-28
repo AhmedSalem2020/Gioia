@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.webcam.js")">
+    </script>
+    <script type="text/javascript">
+
+            $("#Camera").webcam({
+
+                mode: "save",
+                swffile: "@Url.Content("~/Scripts/jscam.swf")",
+                onTick: function () { },
+                onSave: function () { },
+                onCapture: async function () {
+                    await webcam.save("@Url.Content("~/webcam/Capture")/");
+                    $("#strt")[0].click();
+                },
+                debug: function () { },
+                onLoad: function () {}
+
+            });
+    </script>
+
+}
+<br />
+<br />
+
+
+
+<div class="col-sm-10 Scontainer" style="margin-top:100px;margin-bottom:100px;">
+
+    <div class="center-block ">
+
+        <div class="container">
+            <div class="row">
+                <div class=" container center-block text-center">
+                    <div style="border: 4px solid #ccc;" class="col-sm-6">
+                        <div id="Camera"></div><br>
+                        <input type="button" value="Capture" class="btn btn-success" onclick="webcam.capture();" />
+                        <a style="display:none;" href="/webcam/options" id="strt">start</a>
+
+                    </div>
+                    <img src="~/images/inside-out-characters/insideoutgrp4.png" class="col-sm-5" style="margin-left:50px;" />
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

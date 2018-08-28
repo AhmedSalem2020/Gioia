@@ -1,0 +1,115 @@
+﻿.media
+{
+    padding: 0;
+    margin: 5px;
+    margin-bottom: 0px;
+    background-color: #fff;
+    margin-top:15px;
+}
+
+
+
+.media-object
+{
+    margin:0;
+    border-radius:0;
+    border-width:0px !important;
+}
+
+.media-controls-bottom
+{
+    background-color: #f5f5f5;
+   color: #888888;
+    font-size: 13px;
+    /* font-weight: bold; */
+    position: relative;
+    /* left: -5px; */
+    /* top: 5px; */
+    padding: 12px;
+    /* width: 104%; */
+    text-align: center;
+}
+
+
+.media-comment
+{
+    width:95%;
+    margin-top:0px;
+    margin-bottom:0px;
+    position: relative;
+    border-top: none;
+     background-color:#fafafa;
+}
+.media .pull-left
+{
+    margin:0;
+    padding-right:10px;
+    background-color:#fafafa;
+}
+.media-body-comment
+{
+    border-bottom: 1px #f2f2f2 solid;
+}
+..media-heading
+{
+    margin:0;
+}
+.media-heading-comment
+{
+    margin:0;
+    padding-top:10px;
+    padding-bottom:6px;
+}
+.media-heading a
+{
+    text-decoration:none;
+    color:inherit;
+    padding-top:10px;
+}
+.media-content
+{
+    padding:10px;
+   
+}
+.media-body{
+    padding-top:0;
+    padding-bottom:0;
+    background-color:#fafafa;
+}
+
+.media-body a{
+    margin-top:10px;
+
+}
+.media-body .badge
+{
+         display: inline-block;
+    min-width: 10px;
+    padding: 24px 19px;
+    position: relative;
+    border-radius:0;
+    font-size:inherit;
+}
+
+.media .name
+{
+    padding-top:10px;
+}
+
+.graph
+{
+    background-color:white;
+    padding:10px;
+      margin: 5px;
+     
+}
+canvas{
+    width:100% !important;
+}
+
+@media(max-width:767px){
+    .media{
+        margin-right:0;
+        margin-left:0;
+    }
+}

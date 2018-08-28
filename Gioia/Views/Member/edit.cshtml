@@ -1,0 +1,303 @@
+﻿@model Gioia.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>User profile form requirement</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
+    <!-- Bootstrap Core CSS -->
+    <!--     <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <style>
+
+        body {
+            padding-top: 70px;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+        .othertop {
+            margin-top: 10px;
+        }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 ">
+                <form method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <fieldset>
+                        <div class="col-xs-10">
+                            <input type="hidden" name="Id" value="@Model.Id" />
+                            <div class="form-group">
+                                @if (ViewBag.error != null)
+                                {
+                                    <div class="w3ls-icon">
+                                        <h5 style="color:red">@ViewBag.error</h5>
+                                    </div>
+                                }
+                            </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="userName">userName</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user">
+                                                </i>
+                                            </div>
+                                            <input id="userName" name="UserName" value="@Model.UserName" type="text" placeholder="userName" class="form-control input-md">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="FirstName">FirstName</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user">
+                                                </i>
+                                            </div>
+                                            <input id="FirstName" name="Fname" value="@Model.Fname" type="text" placeholder="FirstName" class="form-control input-md">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="LastName">LastName</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user">
+                                                </i>
+                                            </div>
+                                            <input id="LastName" name="Lname" value="@Model.Lname" type="text" placeholder="LastName" class="form-control input-md">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="Date Of Birth">Date Of Birth</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-birthday-cake"></i>
+
+                                            </div>
+                                            <input id="Date Of Birth" name="BirthDate" value="@Model.BirthDate" type="text" placeholder="Date Of Birth" class="form-control input-md">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="Phone number ">Phone number </label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+
+                                            </div>
+                                            <input id="Phone number " name="PhoneNumber" value="@Model.PhoneNumber" type="text" placeholder="Primary Phone number " class="form-control input-md">
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="Email Address">Email Address</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-envelope-o"></i>
+
+                                            </div>
+                                            <input id="Email Address" name="Email" value="@Model.Email" type="text" placeholder="Email Address" class="form-control input-md">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group im col-xs-2">
+                                <div>
+                                    @{
+                                        var imgSrc = "";
+                                        if (Model.Image != null)
+                                        {
+                                            var base64 = Convert.ToBase64String(Model.Image);
+                                            imgSrc = String.Format("data:image/png;base64,{0}", base64);
+                                            TempData["image"] = imgSrc;
+                                            TempData.Keep();
+
+                                        }
+
+                                    }
+                                    <img src="@TempData["image"]" class="img-responsive img-thumbnail">
+
+                                    <input type="file" value="browse" name="img" />
+
+                                </div>
+                            </div>
+
+
+                            <!-- Textarea -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-4">
+
+                                    <input type="submit" value=@ViewBag.btnTitle class="btn btn-primary" />
+
+                                </div>
+                            </div>
+
+
+</fieldset>
+                     
+                </form>
+            </div>
+           
+
+        </div>
+    </div>
+    <!-- jQuery Version 1.11.1 -->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+@*<form method="post" class="form-horizontal" enctype="multipart/form-data">
+    <input type="hidden" value="@Model.Id" />
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.UserName, new { @class = "col-sm-3 label-control" })
+
+        <div class="col-sm-6">
+
+            @Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })
+        </div>
+
+        <div class="col-sm-3 bg-info">
+            @Html.ValidationMessageFor(a => a.UserName)
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Fname, new { @class = "col-sm-3 label-control" })
+
+        <div class="col-sm-6">
+
+            @Html.TextBoxFor(a => a.Fname, new { @class = "form-control" })
+        </div>
+
+        <div class="col-sm-3 bg-info">
+            @Html.ValidationMessageFor(a => a.Fname)
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Lname, new { @class = "col-sm-3 label-control" })
+
+        <div class="col-sm-6">
+            @Html.TextBoxFor(a => a.Lname, new { @class = "form-control" })
+        </div>
+
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.Lname)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Email, new { @class = "col-sm-3 label-control" })
+
+        <div class="col-sm-6">
+            @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+        </div>
+
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.Email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.PhoneNumber, new { @class = "col-sm-3 label-control" })
+
+        <div class="col-sm-6">
+            @Html.EditorFor(a => a.PhoneNumber, new { @class = "form-control" })
+        </div>
+
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.PhoneNumber)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.BirthDate, new { @class = "col-sm-3 label-control" })
+
+        <div class="col-sm-6">
+            @Html.EditorFor(a => a.BirthDate, new { @class = "form-control" })
+        </div>
+
+        <div class="col-sm-3 bg-danger">
+            @Html.ValidationMessageFor(a => a.BirthDate)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Image, new { @class = "col-sm-3 label-control" })
+
+        <div class="col-sm-6">
+            <input type="file" value="browse" name="img" />
+            @Html.EditorFor(a => a.Image, new { @class = "form-control" })
+            </div>
+
+            <div class="col-sm-3 bg-danger">
+                @Html.ValidationMessageFor(a => a.Image)
+            </div>
+            </div>
+            <div class="form-group">
+
+                <div class="col-sm-6 col-sm-offest-3">
+
+                    <input type="submit" value=@ViewBag.btnTitle class="btn btn-warning" />
+
+                </div>
+
+            </div>
+
+            </form>*@
+

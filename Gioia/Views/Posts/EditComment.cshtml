@@ -1,0 +1,31 @@
+﻿@model Gioia.Models.PostComment
+@{
+    ViewBag.Title = "EditComment";
+}
+<img src="~/images/inside-out-characters/characters-xs.png" style="width:350px;" class="col-xs-offset-5" />
+<h4 class="col-xs-offset-5">Edit Comment</h4>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.comment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 col-xs-offset-1">
+                @Html.EditorFor(model => model.comment, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-5 col-md-10">
+                <input type="hidden" name="commentId" value="@Model.id" />
+                <input type="hidden" name="commentId" value="@Model.comment" />
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+

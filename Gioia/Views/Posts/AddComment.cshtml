@@ -1,0 +1,48 @@
+﻿@model Gioia.Models.PostComment
+@{
+    ViewBag.Title = "AddComment";
+}
+<style>
+    i {
+        font-size: 20px;
+        background: #f3f3f3;
+        padding: 5px 5px;
+        padding-top: 10px;
+        border-radius: 50%;
+        color: #74c2e1;
+        height: 40px;
+        width: 40px;
+    }
+
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+    }
+</style>
+<img src="~/images/inside-out-characters/characters-xs.png" style="width:350px;" class="col-xs-offset-5"/>
+<h4 style="color:#113f8d" class="col-xs-offset-5">Add Comment</h4>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @* @Html.LabelFor(model => model.comment, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-xs-10 col-xs-offset-1">
+                @Html.EditorFor(model => model.comment, new { htmlAttributes = new { @class = "form-control", style = "border-radius:3px;" } })
+                @*@Html.ValidationMessageFor(model => model.post, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-5 col-md-10">
+                <input type="submit" value="comment" class="btn btn-primary " />
+                @*<input type="submit" value="comment" class="btn btn-default" style="border:none;color:#113f8d;"/>*@
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+}

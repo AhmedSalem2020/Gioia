@@ -1,0 +1,331 @@
+﻿
+
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html, body {
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+a {
+    color: #0A8FD5;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+body {
+    padding-top: 45px;
+    background-color: #fff;
+    background-color: #A1D6E7;
+    /*overflow-y: scroll;
+    height: 100%;*/
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    padding: 0;
+    margin: 0;
+}
+
+/*stop datepicker going huge*/
+#ui-datepicker-div {
+    font-size: 12px !important;
+}
+
+/*
+ * main buttons on front menu
+ * --------------------------------------------------
+ */
+.button-menu:hover {
+    opacity: 0.8;
+}
+
+.button-menu {
+    display: block;
+    width: 100%;
+    height: 100px;
+    background-color: #3B8AA9;
+    border: solid 1px White;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+
+.edgetoedge {
+    padding: 0;
+}
+
+/*
+ * Nav bar items
+ * --------------------------------------------------
+ */
+#sidebar .list-group-item {
+    cursor: pointer;
+}
+
+#sidebar .list-group-item {
+    background-color: #fff;
+    border: none;
+    border-bottom: solid 2px #dedede !important;
+}
+
+#sidebar a.list-group-item:hover, #sidebar a.list-group-item:focus {
+    color: #31708f !important;
+    background-color: #c4e3f3;
+}
+
+#sidebar .list-group {
+    margin-top: 15px;
+    margin-left: 5px;
+    position: relative;
+    border: none;
+}
+
+#sidebar .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+
+/*
+ * Top Nav
+ * --------------------------------------------------
+ */
+.navbar {
+    min-height: 40px;
+}
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+    position: relative;
+    z-index: 15;
+}
+
+.navbar-default {
+    background-color: #fff !important;
+    border-bottom: solid 2px #99CCDD !important;
+    /*can put transparency here background-color: transparent !important;   border-color: transparent !important;*/
+}
+
+.navbar-brand {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.navbar-toggle {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #444;
+}
+
+.navbar-opaque {
+    background-color: #fff !important;
+    border-bottom: solid 2px #99CCDD !important;
+    opacity: 1;
+}
+
+.navbar-brand {
+    color: #555 !important;
+    margin-right: 40px;
+}
+
+
+
+
+/*SHOW HIDDEN STUFF WITH BIG SCREEN
+@media screen and (min-width: 768px) {
+
+.navbar-hidesmall
+    {
+        display:inline;
+       
+    }
+}*/
+
+/*IPAD  http://stephen.io/mediaqueries/
+@media only screen 
+ (max-device-width : 1024px) 
+and (-webkit-min-device-pixel-ratio: 1)
+{
+  
+    .navbar-hidesmall
+    {
+        display:none;
+    }
+}*/
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+    .navbar-hidesmall {
+        display: none;
+    }
+
+    .navbar-brand {
+        margin-right: 10px;
+    }
+
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all .25s ease-out;
+        -moz-transition: all .25s ease-out;
+        transition: all .25s ease-out;
+    }
+
+    .row-offcanvas-right {
+        right: 0;
+    }
+
+    .row-offcanvas-left {
+        left: 0;
+    }
+
+    .row-offcanvas-right .sidebar-offcanvas {
+        right: -75%; /* 6 columns */
+    }
+
+    .row-offcanvas-left .sidebar-offcanvas {
+        left: -75%; /* 6 columns */
+    }
+
+
+
+
+
+    .row-offcanvas-right.active {
+        right: 75%; /* 6 columns */
+    }
+
+    .row-offcanvas-left.active {
+        left: 75%; /* 6 columns */
+    }
+
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+        width: 75%; /* 6 columns */
+    }
+}
+
+
+
+
+/*
+ * Modal bug pushes content to the left by default 
+ * --------------------------------------------------
+ */
+body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
+    margin-right: 0;
+}
+
+.modal-footer {
+    margin-top: 0 !important;
+}
+
+/*
+ * slider height 
+ * --------------------------------------------------
+ */
+.ui-widget {
+    font-size: 23px !important;
+}
+
+
+h5 {
+    font-size: 16px;
+}
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+    background-color: #0A8FD5;
+    border-color: #0A8FD5;
+}
+
+.btn-primary .badge {
+    color: #0A8FD5;
+    background-color: white;
+}
+
+
+
+input.form-control:focus {
+    border-color: #0A8FD5;
+    box-shadow: none;
+}
+
+
+.btn-primary {
+    color: white;
+    background-color: #0A8FD5;
+    border-color: #0A8FD5;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+
+.text-primary {
+    color: #0A8FD5;
+}
+
+.btn-full-width:hover {
+    background-color: #0A8FD5;
+    color: white;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    color: #0A8FD5;
+    background: white;
+    outline: none;
+}
+
+
+.btn-outline-dark:hover,
+.btn-outline-dark:focus {
+    color: white;
+    background: #0A8FD5;
+    border-color: #0A8FD5;
+    outline: none;
+}
+
+/*@media (min-width: 979px) {*/
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+/*}*/

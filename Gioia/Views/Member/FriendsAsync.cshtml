@@ -1,0 +1,157 @@
+﻿@model IEnumerable<Gioia.Models.Friend>
+@{
+    ViewBag.Title = "FriendsAsync";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+ .submitLink
+ {
+        background-color: transparent;
+        text-decoration: underline;
+        border: none;
+        color: blue;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    submitLink:focus 
+    {
+        outline: none;
+    }
+
+</style>
+<img src="~/images/inside-out-characters/joy.png" class="col-sm-2 col-sm-offset-10 fa-image" />
+
+
+<div style="margin-left:0px;">
+    <table class="col-sm-8 col-sm-offset-0 text-center table  table-hover">
+
+        @foreach (var item in Model)
+        {
+            var fullNameBy = item.RequestedBy.Fname + " " + item.RequestedBy.Lname;
+            var fullNameTo = item.RequestedTo.Fname + " " + item.RequestedTo.Lname;
+
+            if (item.ReceiverId == TempData["userId"].ToString())
+            {
+
+                <tr>
+                    <td style="padding-top:20px;padding-bottom:10px;">
+
+                        <div class="row">
+                            <div class="col-sm-4 col-sm-offset-4 border display-container ">
+                                @{
+                                    if (item.RequestedBy.Image != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(item.RequestedBy.Image);
+                                        var imgSrc = String.Format("data:image/png;base64,{0}", base64);
+                                        <img src="@imgSrc" class="img-responsive img-circle center-block  " />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/images/inside-out-characters/gioiauser.jpg" class="img-responsive img-circle center-block dis-inline-block" />
+
+
+                                    }
+
+                                }
+                            </div>
+                        </div>
+                    </td>
+                    <th class="col-sm-2">
+
+                        @using (Html.BeginForm("userProfile", "Member"))
+                        {
+
+
+                            <button name="submit" class="submitLink " type="submit" value="@item.RequestedBy.Id">@fullNameBy </button>
+
+
+                        }
+
+                    </th>
+
+                    <td class="col-sm-5" style="padding-bottom:20px;padding-top:10px;">
+
+                        @using (Html.BeginForm("CancelRequest", "Member"))
+                        {
+
+                            <button name="submit" class="block btn btn-primary" type="submit" value="@item.RequestedBy.Id">Unfriend</button>
+
+                        }
+
+                        @using (Html.BeginForm("Block", "Member"))
+                        {
+
+                            <button name="submit" style="margin-top:5px;" class="block btn btn-danger" type="submit" value="@item.RequestedBy.Id">Block</button>
+
+
+                        }
+                    </td>
+
+
+
+                </tr>
+
+
+            }
+
+            else if (item.SenderId == TempData["userId"].ToString())
+            {
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-3 col-sm-offset-4 border display-container ">
+                                @{
+                                    if (item.RequestedBy.Image != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(item.RequestedBy.Image);
+                                        var imgSrc = String.Format("data:image/png;base64,{0}", base64);
+                                        <img src="@imgSrc" class="img-responsive img-circle center-block block" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/images/inside-out-characters/gioiauser.jpg" class="img-responsive img-circle center-block block" />
+
+
+                                    }
+
+                                }
+
+
+                                @using (Html.BeginForm("userProfile", "Member"))
+                                {
+
+
+                                    <button name="submit" class="submitLink" type="submit" value="@item.RequestedTo.Id">@fullNameTo</button>
+
+
+                                }
+
+                                @using (Html.BeginForm("CancelRequest", "Member"))
+                                {
+
+                                    <button name="submit" class="block btn btn-primary" type="submit" value="@item.RequestedTo.Id">Unfriend</button>
+
+                                }
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+                    </td>
+
+                </tr>
+            }
+
+        }
+    </table>
+</div>

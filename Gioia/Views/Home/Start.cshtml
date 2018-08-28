@@ -1,0 +1,102 @@
+﻿@{
+
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/vendor/bootstrap/css/StartPage.css" rel="stylesheet" />
+@*<img src="~/images/inside-out-characters/Joy_(Inside_Out).png" class="col-sm-2" />*@
+@*<img src="~/images/inside-out-characters/natural.png" class="col-sm-2 col-sm-offset-6" />*@
+<div style=" border-radius:60%; margin-top:100px;" class="col-sm-8 col-sm-offset-3 circle">
+    <img src="~/images/inside-out-characters/characters-xs.png" />
+</div>
+
+<div class="col-sm-6 Scontainer" style="margin-top:100px;margin-bottom:100px;">
+
+
+    <div class="center-block buttons">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 border display-container">
+                    <a href="" data-target=".UploadImage" data-toggle="modal">
+                        <img id="icon" class="img-responsive img-circle center-block" src="~/images/iconImages/automatic_uploading_post.png" />
+                    </a>
+                    <div class="caption center-block">Upload your Image</div>
+                </div>
+
+                <div class="col-md-4 border display-container">
+                    <a href="/APIs/youtube">
+                        <img id="icon" class="img-responsive img-circle center-block" src="~/images/iconImages/icon-choose.png" />
+
+                    </a>
+                    <div class="caption center-block">Choose your current Emotion</div>
+                </div>
+
+                <div class="col-md-4 border display-container">
+                    <a href="/webcam">
+
+                        <img id="icon" class="img-responsive img-circle center-block" src="~/images/iconImages/Dtafalonso-Android-Lollipop-Camera-Next.ico" />
+
+
+                    </a>
+                    <div class="caption center-block">Take a photo</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@if (@Session["Link"]!=null)
+    {
+        <iframe id="video" width="560" height="315" frameborder="0" src='@Session["Link"].ToString()' allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    }*@
+
+
+
+<script src="~/js/jquery-3.1.1.js"></script>
+
+
+@*upload image form*@
+<div class="modal fade UploadImage" tabindex="-1" id="loginModal" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header text-center">
+                <button class="close" type="button" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+                <h3>Upload your image</h3>
+            </div>
+
+            <div class="modal-body text-center ">
+
+                <div class="">
+                    <div class="container">
+                        <div class=" col-md-offset-1 col-sm-7">
+
+                            <form method="post" action="~/Photo/UploadPhoto" enctype="multipart/form-data">
+                                <input type="file" name="photouploader" class="form-control" />
+                                <br />
+                                <input type="submit" value="upload" class="btn btn-success" />
+
+                                <button type="button" data-dismiss="modal" class="btn btn-danger ">
+                                    Hide
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
